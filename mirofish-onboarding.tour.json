@@ -1,0 +1,264 @@
+{
+  "id": "mirofish-onboarding",
+  "title": "MiroFish Onboarding Tour",
+  "description": "A guided walkthrough of the MiroFish swarm intelligence engine — from full-stack architecture to core simulation services",
+  "version": "1.0.0",
+  "audience": "New Developers",
+  "prerequisites": [
+    "Basic knowledge of Vue.js and Python/Flask",
+    "Familiarity with REST API patterns"
+  ],
+  "steps": [
+    {
+      "id": "step-1-overview",
+      "title": "Welcome to MiroFish",
+      "description": "MiroFish is a swarm intelligence engine that transforms seed documents into multi-agent simulations for prediction and analysis. The codebase is split into two main areas: a Vue 3 frontend and a Flask backend, with Docker support for deployment. Let's explore the full layout.",
+      "estimatedTime": 60,
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "frontend-backend",
+          "name": "Frontend & Backend",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "frontend", "type": "directory" },
+            { "path": "backend", "type": "directory" }
+          ],
+          "opacity": 0.6,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "hover-directory",
+          "description": "Hover over the frontend and backend directories to see their contents",
+          "target": "frontend"
+        }
+      ]
+    },
+    {
+      "id": "step-2-frontend-views",
+      "title": "Frontend — Views & Routing",
+      "description": "The frontend is built with Vue 3 and Vite. The views directory contains the page-level components that map to the app's routes: Home (upload & intro), MainView (multi-step orchestration), SimulationView, SimulationRunView, ReportView, and InteractionView. The router wires them together.",
+      "estimatedTime": 90,
+      "focusDirectory": "frontend/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "views-layer",
+          "name": "Page Views",
+          "color": "#10b981",
+          "items": [
+            { "path": "frontend/src/views", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "router-layer",
+          "name": "Router",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "frontend/src/router", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click Home.vue to see the landing page component",
+          "target": "frontend/src/views/Home.vue"
+        }
+      ]
+    },
+    {
+      "id": "step-3-frontend-components",
+      "title": "Frontend — Step Components & API Layer",
+      "description": "The 5-step workflow is powered by step components (Step1GraphBuild through Step5Interaction) inside the components directory. The api directory contains Axios clients for graph, simulation, and report endpoints with retry logic and request proxying.",
+      "estimatedTime": 90,
+      "focusDirectory": "frontend/src",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "step-components",
+          "name": "Step Components",
+          "color": "#8b5cf6",
+          "items": [
+            { "path": "frontend/src/components", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "api-clients",
+          "name": "API Clients",
+          "color": "#ef4444",
+          "items": [
+            { "path": "frontend/src/api", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click Step1GraphBuild.vue to see how graph building is initiated",
+          "target": "frontend/src/components/Step1GraphBuild.vue"
+        }
+      ]
+    },
+    {
+      "id": "step-4-backend-api",
+      "title": "Backend — API Routes",
+      "description": "The Flask backend uses blueprints to organize three API groups: graph.py handles knowledge graph construction from uploaded documents, simulation.py manages agent simulation lifecycle, and report.py generates analysis reports. All routes live under /api/.",
+      "estimatedTime": 90,
+      "focusDirectory": "backend/app",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "api-routes",
+          "name": "API Blueprints",
+          "color": "#3b82f6",
+          "items": [
+            { "path": "backend/app/api", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click graph.py to see the graph construction endpoints",
+          "target": "backend/app/api/graph.py"
+        }
+      ]
+    },
+    {
+      "id": "step-5-backend-services",
+      "title": "Backend — Core Services",
+      "description": "The services directory is the heart of MiroFish. Key services include: ontology_generator (extracts entity types via LLM), graph_builder (constructs knowledge graphs via Zep), oasis_profile_generator (creates agent personas), simulation_runner (executes OASIS multi-agent simulations), and report_agent (generates analysis reports).",
+      "estimatedTime": 120,
+      "focusDirectory": "backend/app/services",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "graph-services",
+          "name": "Graph Pipeline",
+          "color": "#10b981",
+          "items": [
+            { "path": "backend/app/services/ontology_generator.py", "type": "file" },
+            { "path": "backend/app/services/text_processor.py", "type": "file" },
+            { "path": "backend/app/services/graph_builder.py", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "fill"
+        },
+        {
+          "id": "simulation-services",
+          "name": "Simulation Engine",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "backend/app/services/oasis_profile_generator.py", "type": "file" },
+            { "path": "backend/app/services/simulation_config_generator.py", "type": "file" },
+            { "path": "backend/app/services/simulation_runner.py", "type": "file" },
+            { "path": "backend/app/services/simulation_manager.py", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "fill"
+        },
+        {
+          "id": "report-service",
+          "name": "Report Agent",
+          "color": "#ef4444",
+          "items": [
+            { "path": "backend/app/services/report_agent.py", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "fill"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click simulation_runner.py to see the OASIS execution engine",
+          "target": "backend/app/services/simulation_runner.py"
+        }
+      ]
+    },
+    {
+      "id": "step-6-models-utils",
+      "title": "Backend — Models & Utilities",
+      "description": "The models directory manages state for projects (upload through graph completion) and async tasks (progress tracking for long-running operations). The utils directory provides shared tools: llm_client (unified LLM wrapper), file_parser (PDF/MD/TXT extraction), zep_paging (graph pagination), and structured logging.",
+      "estimatedTime": 60,
+      "focusDirectory": "backend/app",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "models-layer",
+          "name": "Data Models",
+          "color": "#ec4899",
+          "items": [
+            { "path": "backend/app/models", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        },
+        {
+          "id": "utils-layer",
+          "name": "Utilities",
+          "color": "#06b6d4",
+          "items": [
+            { "path": "backend/app/utils", "type": "directory" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "border"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "click-file",
+          "description": "Click config.py to see how environment variables drive configuration",
+          "target": "backend/app/config.py"
+        }
+      ]
+    },
+    {
+      "id": "step-7-config-deploy",
+      "title": "Configuration & Deployment",
+      "description": "MiroFish uses a root package.json with concurrently to run both frontend and backend together. Docker support is provided via Dockerfile and docker-compose.yml. Environment configuration is driven by a .env file (see .env.example for required keys like LLM_API_KEY and ZEP_API_KEY).",
+      "estimatedTime": 60,
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "highlightLayers": [
+        {
+          "id": "config-files",
+          "name": "Configuration",
+          "color": "#f59e0b",
+          "items": [
+            { "path": "package.json", "type": "file" },
+            { "path": "docker-compose.yml", "type": "file" },
+            { "path": "Dockerfile", "type": "file" }
+          ],
+          "opacity": 0.7,
+          "renderStrategy": "fill"
+        }
+      ],
+      "interactiveActions": [
+        {
+          "type": "explore",
+          "description": "Explore the full codebase — you're ready to start contributing!"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "author": "Claude",
+    "createdAt": "2026-03-14",
+    "tags": ["onboarding", "architecture", "full-stack"]
+  }
+}
