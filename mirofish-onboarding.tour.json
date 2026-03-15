@@ -77,7 +77,7 @@
     {
       "id": "step-3-frontend-components",
       "title": "Frontend — Step Components & API Layer",
-      "description": "The 5-step workflow is powered by step components (Step1GraphBuild through Step5Interaction) inside the components directory. The api directory contains Axios clients for graph, simulation, and report endpoints with retry logic and request proxying.",
+      "description": "The 5 step workflow is powered by step components (Step1GraphBuild through Step5Interaction) inside the components directory. The api directory contains Axios clients for graph, simulation, and report endpoints with retry logic and request proxying.",
       "estimatedTime": 90,
       "focusDirectory": "frontend/src",
       "colorMode": "fileTypes",
@@ -114,7 +114,7 @@
     {
       "id": "step-4-backend-api",
       "title": "Backend — API Routes",
-      "description": "The Flask backend uses blueprints to organize three API groups: graph.py handles knowledge graph construction from uploaded documents, simulation.py manages agent simulation lifecycle, and report.py generates analysis reports. All routes live under /api/.",
+      "description": "The Flask backend uses blueprints to organize three API groups: graph.py handles knowledge graph construction from uploaded documents, simulation.py manages agent simulation lifecycle, and report.py generates analysis reports. All routes live under api.",
       "estimatedTime": 90,
       "focusDirectory": "backend/app",
       "colorMode": "fileTypes",
@@ -250,8 +250,23 @@
       ],
       "interactiveActions": [
         {
+          "type": "click-file",
+          "description": "Click package.json to see the dev scripts",
+          "target": "package.json"
+        }
+      ]
+    },
+    {
+      "id": "step-8-summary",
+      "title": "Tour Summary",
+      "description": "You have explored the full MiroFish architecture: a Vue 3 frontend with page views, step components, and API clients; a Flask backend organized into API blueprints, core services (ontology generation, graph building, OASIS simulation, and report analysis), data models, and shared utilities; plus Docker and environment-based configuration for deployment. You are ready to start contributing!",
+      "estimatedTime": 30,
+      "focusDirectory": "",
+      "colorMode": "fileTypes",
+      "interactiveActions": [
+        {
           "type": "explore",
-          "description": "Explore the full codebase — you're ready to start contributing!"
+          "description": "Explore the full codebase on your own"
         }
       ]
     }
